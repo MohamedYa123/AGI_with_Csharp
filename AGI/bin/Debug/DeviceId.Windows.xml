@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DeviceId.Windows</name>
+    </assembly>
+    <members>
+        <member name="T:DeviceId.Windows.Components.RegistryValueDeviceIdComponent">
+            <summary>
+            An implementation of <see cref="T:DeviceId.IDeviceIdComponent"/> that retrieves its value from the Windows registry.
+            </summary>
+        </member>
+        <member name="F:DeviceId.Windows.Components.RegistryValueDeviceIdComponent._registryHive">
+            <summary>
+            The registry hive.
+            </summary>
+        </member>
+        <member name="F:DeviceId.Windows.Components.RegistryValueDeviceIdComponent._registryView">
+            <summary>
+            The registry views.
+            </summary>
+        </member>
+        <member name="F:DeviceId.Windows.Components.RegistryValueDeviceIdComponent._keyName">
+            <summary>
+            The name of the registry key.
+            </summary>
+        </member>
+        <member name="F:DeviceId.Windows.Components.RegistryValueDeviceIdComponent._valueName">
+            <summary>
+            The name of the registry value.
+            </summary>
+        </member>
+        <member name="M:DeviceId.Windows.Components.RegistryValueDeviceIdComponent.#ctor(Microsoft.Win32.RegistryView,Microsoft.Win32.RegistryHive,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceId.Windows.Components.RegistryValueDeviceIdComponent"/> class.
+            </summary>
+            <param name="registryView">The registry view.</param>
+            <param name="registryHive">The registry hive.</param>
+            <param name="keyName">The name of the registry key.</param>
+            <param name="valueName">The name of the registry value.</param>
+        </member>
+        <member name="M:DeviceId.Windows.Components.RegistryValueDeviceIdComponent.GetValue">
+            <summary>
+            Gets the component value.
+            </summary>
+            <returns>The component value.</returns>
+        </member>
+        <member name="T:DeviceId.DeviceIdBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:DeviceId.DeviceIdBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:DeviceId.DeviceIdBuilderExtensions.OnWindows(DeviceId.DeviceIdBuilder,System.Action{DeviceId.WindowsDeviceIdBuilder})">
+            <summary>
+            Adds Windows-specific components to the device ID.
+            </summary>
+            <param name="builder">The device ID builder to add the components to.</param>
+            <param name="windowsBuilderConfiguration">An action that adds the Windows-specific components.</param>
+            <returns>The device ID builder.</returns>
+        </member>
+        <member name="T:DeviceId.WindowsDeviceIdBuilder">
+            <summary>
+            Provides a fluent interface for adding Windows-specific components to a device identifier.
+            </summary>
+        </member>
+        <member name="F:DeviceId.WindowsDeviceIdBuilder._baseBuilder">
+            <summary>
+            The base device identifier builder.
+            </summary>
+        </member>
+        <member name="M:DeviceId.WindowsDeviceIdBuilder.#ctor(DeviceId.DeviceIdBuilder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> class.
+            </summary>
+            <param name="baseBuilder">The base device identifier builder.</param>
+        </member>
+        <member name="M:DeviceId.WindowsDeviceIdBuilder.AddComponent(System.String,DeviceId.IDeviceIdComponent)">
+            <summary>
+            Adds a component to the device identifier.
+            If a component with the specified name already exists, it will be replaced with this newly added component.
+            </summary>
+            <param name="name">The component name.</param>
+            <param name="component">The component to add.</param>
+            <returns>The builder instance.</returns>
+        </member>
+        <member name="T:DeviceId.WindowsDeviceIdBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:DeviceId.WindowsDeviceIdBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:DeviceId.WindowsDeviceIdBuilderExtensions.AddRegistryValue(DeviceId.WindowsDeviceIdBuilder,System.String,Microsoft.Win32.RegistryView,Microsoft.Win32.RegistryHive,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceId.Windows.Components.RegistryValueDeviceIdComponent"/> class.
+            </summary>
+            <param name="builder">The <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> to add the component to.</param>
+            <param name="componentName">The name of the component.</param>
+            <param name="registryView">The registry view.</param>
+            <param name="registryHive">The registry hive.</param>
+            <param name="registryKeyName">The name of the registry key.</param>
+            <param name="registryValueName">The name of the registry value.</param>
+        </member>
+        <member name="M:DeviceId.WindowsDeviceIdBuilderExtensions.AddMachineGuid(DeviceId.WindowsDeviceIdBuilder)">
+            <summary>
+            Adds the Machine GUID (from HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\MachineGuid) to the device identifier.
+            </summary>
+            <param name="builder">The <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> to add the component to.</param>
+            <returns>The <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> instance.</returns>
+        </member>
+    </members>
+</doc>

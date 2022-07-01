@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DeviceId.Windows.Wmi</name>
+    </assembly>
+    <members>
+        <member name="T:DeviceId.Windows.Wmi.Components.WmiDeviceIdComponent">
+            <summary>
+            An implementation of <see cref="T:DeviceId.IDeviceIdComponent"/> that retrieves data from a WMI class.
+            </summary>
+        </member>
+        <member name="F:DeviceId.Windows.Wmi.Components.WmiDeviceIdComponent._className">
+            <summary>
+            The class name.
+            </summary>
+        </member>
+        <member name="F:DeviceId.Windows.Wmi.Components.WmiDeviceIdComponent._propertyName">
+            <summary>
+            The property name.
+            </summary>
+        </member>
+        <member name="M:DeviceId.Windows.Wmi.Components.WmiDeviceIdComponent.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceId.Windows.Wmi.Components.WmiDeviceIdComponent"/> class.
+            </summary>
+            <param name="className">The class name.</param>
+            <param name="propertyName">The property name.</param>
+        </member>
+        <member name="M:DeviceId.Windows.Wmi.Components.WmiDeviceIdComponent.GetValue">
+            <summary>
+            Gets the component value.
+            </summary>
+            <returns>The component value.</returns>
+        </member>
+        <member name="T:DeviceId.Windows.Wmi.Components.WmiMacAddressDeviceIdComponent">
+            <summary>
+            An implementation of <see cref="T:DeviceId.IDeviceIdComponent"/> that uses the MAC Address of the PC.
+            This improves upon the basic <see cref="T:DeviceId.Components.MacAddressDeviceIdComponent"/> by using WMI
+            to get better information from either MSFT_NetAdapter or Win32_NetworkAdapter.
+            </summary>
+        </member>
+        <member name="F:DeviceId.Windows.Wmi.Components.WmiMacAddressDeviceIdComponent._excludeWireless">
+            <summary>
+            A value determining whether wireless devices should be excluded.
+            </summary>
+        </member>
+        <member name="F:DeviceId.Windows.Wmi.Components.WmiMacAddressDeviceIdComponent._excludeNonPhysical">
+            <summary>
+            A value determining whether non-physical devices should be excluded.
+            </summary>
+        </member>
+        <member name="M:DeviceId.Windows.Wmi.Components.WmiMacAddressDeviceIdComponent.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceId.Windows.Wmi.Components.WmiMacAddressDeviceIdComponent"/> class.
+            </summary>
+            <param name="excludeWireless">A value determining whether wireless devices should be excluded.</param>
+            <param name="excludeNonPhysical">A value determining whether non-physical devices should be excluded.</param>
+        </member>
+        <member name="M:DeviceId.Windows.Wmi.Components.WmiMacAddressDeviceIdComponent.GetValue">
+            <summary>
+            Gets the component value.
+            </summary>
+            <returns>The component value.</returns>
+        </member>
+        <member name="M:DeviceId.Windows.Wmi.Components.WmiMacAddressDeviceIdComponent.GetValueUsingMsftNetAdapter(System.Boolean,System.Boolean)">
+            <summary>
+            Gets the component value using MSFT_NetAdapter.
+            </summary>
+            <param name="excludeWireless">A value determining whether wireless devices should be excluded.</param>
+            <param name="excludeNonPhysical">A value determining whether non-physical devices should be excluded.</param>
+            <returns>The component value.</returns>
+        </member>
+        <member name="M:DeviceId.Windows.Wmi.Components.WmiMacAddressDeviceIdComponent.GetValueUsingWin32NetworkAdapter(System.Boolean,System.Boolean)">
+            <summary>
+            Gets the component value using Win32_NetworkAdapter.
+            </summary>
+            <param name="excludeWireless">A value determining whether wireless devices should be excluded.</param>
+            <param name="excludeNonPhysical">A value determining whether non-physical devices should be excluded.</param>
+            <returns>The component value.</returns>
+        </member>
+        <member name="T:DeviceId.Windows.Wmi.Components.WmiSystemDriveSerialNumberDeviceIdComponent">
+            <summary>
+            An implementation of <see cref="T:DeviceId.IDeviceIdComponent"/> that uses the system drive's serial number.
+            </summary>
+        </member>
+        <member name="M:DeviceId.Windows.Wmi.Components.WmiSystemDriveSerialNumberDeviceIdComponent.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceId.Windows.Wmi.Components.WmiSystemDriveSerialNumberDeviceIdComponent"/> class.
+            </summary>
+        </member>
+        <member name="M:DeviceId.Windows.Wmi.Components.WmiSystemDriveSerialNumberDeviceIdComponent.GetValue">
+            <summary>
+            Gets the component value.
+            </summary>
+            <returns>The component value.</returns>
+        </member>
+        <member name="T:DeviceId.WindowsDeviceIdBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:DeviceId.WindowsDeviceIdBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:DeviceId.WindowsDeviceIdBuilderExtensions.AddMacAddressFromWmi(DeviceId.WindowsDeviceIdBuilder,System.Boolean,System.Boolean)">
+            <summary>
+            Adds the MAC address to the device identifier, optionally excluding wireless adapters and/or non-physical adapters.
+            </summary>
+            <param name="builder">The <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> to add the component to.</param>
+            <param name="excludeWireless">A value indicating whether wireless adapters should be excluded.</param>
+            <param name="excludeNonPhysical">A value indicating whether non-physical adapters should be excluded.</param>
+            <returns>The <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> instance.</returns>
+        </member>
+        <member name="M:DeviceId.WindowsDeviceIdBuilderExtensions.AddProcessorId(DeviceId.WindowsDeviceIdBuilder)">
+            <summary>
+            Adds the processor ID to the device identifier.
+            </summary>
+            <param name="builder">The <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> to add the component to.</param>
+            <returns>The <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> instance.</returns>
+        </member>
+        <member name="M:DeviceId.WindowsDeviceIdBuilderExtensions.AddMotherboardSerialNumber(DeviceId.WindowsDeviceIdBuilder)">
+            <summary>
+            Adds the motherboard serial number to the device identifier.
+            </summary>
+            <param name="builder">The <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> to add the component to.</param>
+            <returns>The <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> instance.</returns>
+        </member>
+        <member name="M:DeviceId.WindowsDeviceIdBuilderExtensions.AddSystemUuid(DeviceId.WindowsDeviceIdBuilder)">
+            <summary>
+            Adds the system UUID to the device identifier.
+            </summary>
+            <param name="builder">The <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> to add the component to.</param>
+            <returns>The <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> instance.</returns>
+        </member>
+        <member name="M:DeviceId.WindowsDeviceIdBuilderExtensions.AddSystemSerialDriveNumber(DeviceId.WindowsDeviceIdBuilder)">
+            <summary>
+            Adds the system serial drive number to the device identifier.
+            </summary>
+            <param name="builder">The <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> to add the component to.</param>
+            <returns>The <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> instance.</returns>
+        </member>
+        <member name="M:DeviceId.WindowsDeviceIdBuilderExtensions.AddSystemDriveSerialNumber(DeviceId.WindowsDeviceIdBuilder)">
+            <summary>
+            Adds the system serial drive number to the device identifier.
+            </summary>
+            <param name="builder">The <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> to add the component to.</param>
+            <returns>The <see cref="T:DeviceId.WindowsDeviceIdBuilder"/> instance.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,15 @@
+C:\Users\medo1\source\repos\AGI\AGI\bin\Debug\AGI.exe
+C:\Users\medo1\source\repos\AGI\AGI\bin\Debug\AGI.pdb
+C:\Users\medo1\source\repos\AGI\AGI\obj\Debug\AGI.csproj.AssemblyReference.cache
+C:\Users\medo1\source\repos\AGI\AGI\obj\Debug\AGI.Properties.Resources.resources
+C:\Users\medo1\source\repos\AGI\AGI\obj\Debug\AGI.csproj.GenerateResource.cache
+C:\Users\medo1\source\repos\AGI\AGI\obj\Debug\AGI.csproj.CoreCompileInputs.cache
+C:\Users\medo1\source\repos\AGI\AGI\obj\Debug\AGI.exe
+C:\Users\medo1\source\repos\AGI\AGI\obj\Debug\AGI.pdb
+C:\Users\medo1\source\repos\AGI\AGI\obj\Debug\AGI.Form1.resources
+C:\Users\medo1\source\repos\AGI\AGI\bin\Debug\DeviceId.dll
+C:\Users\medo1\source\repos\AGI\AGI\bin\Debug\DeviceId.xml
+C:\Users\medo1\source\repos\AGI\AGI\bin\Debug\DeviceId.Windows.dll
+C:\Users\medo1\source\repos\AGI\AGI\bin\Debug\DeviceId.Windows.Wmi.dll
+C:\Users\medo1\source\repos\AGI\AGI\bin\Debug\DeviceId.Windows.xml
+C:\Users\medo1\source\repos\AGI\AGI\bin\Debug\DeviceId.Windows.Wmi.xml
